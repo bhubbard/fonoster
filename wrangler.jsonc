@@ -1,0 +1,78 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fonoster-cf",
+  "main": "cloudflare/src/worker.ts",
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "cloudflare/public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "html_handling": "auto-trailing-slash"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fonoster_db",
+      "database_id": "fonoster-db",
+      "migrations_dir": "cloudflare/migrations"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CALL_SESSION_DO",
+        "class_name": "CallSessionDO"
+      },
+      {
+        "name": "SIP_REGISTRAR_DO",
+        "class_name": "SipRegistrarDO"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["CallSessionDO", "SipRegistrarDO"]
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "RECORDINGS_BUCKET",
+      "bucket_name": "fonoster-recordings"
+    },
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "fonoster-media"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "FONOSTER_KV",
+      "id": "fonoster-kv"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "CDRS_QUEUE",
+        "queue": "fonoster-cdrs"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "fonoster-cdrs",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5
+      }
+    ]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "NODE_ENV": "production",
+    "ROOT_DOMAIN": "fonoster.local",
+    "JWT_SECRET": "fonoster-edge-telephony-secret-key-2026"
+  }
+}

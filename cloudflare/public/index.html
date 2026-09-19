@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fonoster Cloudflare</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    h1 {
+      color: #58a6ff;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #238636;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .endpoints {
+      text-align: left;
+      background: #0d1117;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 20px;
+      border: 1px solid #30363d;
+    }
+    .tag {
+      color: #f0883e;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Fonoster Cloudflare</h1>
+    <div class="badge">100% Serverless Edge Telephony</div>
+    <p>Open-Source Programmable Telecommunications running natively on Cloudflare Workers, Durable Objects, D1, R2, and Workers AI.</p>
+    
+    <div class="endpoints">
+      <div><span class="tag">GET</span> /healthz - Service Health Check</div>
+      <div><span class="tag">POST</span> /v1/auth/register - Create User & Workspace</div>
+      <div><span class="tag">POST</span> /v1/auth/login - User Login & JWT Token</div>
+      <div><span class="tag">GET/POST</span> /v1/applications - Voice Applications</div>
+      <div><span class="tag">GET/POST</span> /v1/numbers - Phone Numbers (DIDs)</div>
+      <div><span class="tag">GET/POST</span> /v1/trunks - SIP Trunks</div>
+      <div><span class="tag">POST</span> /v1/calls - Originate Outbound Call</div>
+      <div><span class="tag">WS</span> /v1/calls/:id/media-stream - Live Audio Stream</div>
+      <div><span class="tag">POST</span> /v1/ai/transcribe - Workers AI Whisper STT</div>
+      <div><span class="tag">POST</span> /v1/ai/chat - Workers AI Autopilot Agent</div>
+      <div><span class="tag">GET</span> /v1/cdrs - Call Detail Records</div>
+    </div>
+  </div>
+</body>
+</html>
