@@ -21,15 +21,15 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: "22.x"
+          node-version: "24.x"
 
       - name: Install dependencies and build
         run: |
@@ -175,15 +175,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: "22.x"
+          node-version: "24.x"
 
       - name: Get version from Lerna
         run: |
